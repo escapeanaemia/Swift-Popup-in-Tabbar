@@ -28,6 +28,16 @@ func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewC
 
 상속받은 `tabBarController`속에서 팝업할 뷰의 컨트롤러를 Identfier로 연결합니다. 그리고 tabBarController.present를 통해 해당 뷰가 보여질 수 있도록 합니다. 
 
+다음으로 가장 먼저 실행될 뷰컨트롤러에 `UITabBarControllerDelegate`를 추가합니다.    
+```
+class FirstViewController: UIViewController , UITabBarControllerDelegate{
+```
+그리고 해당 클래스속 `viewDidLoad()`에 아래의 코드를 추가합니다.
+
+```
+self.tabBarController?.delegate = UIApplication.shared.delegate as? UITabBarControllerDelegate
+```
+
 #### StoryBoard
 팝업뷰로 쓰고싶은 UIViewController의 background color를 제거해줍니다. 이와 함께 Presentation 스타일을 **Over Current Context**로 해줍니다,
 
